@@ -1,0 +1,106 @@
+INTRODUCCIÓN : inicio de la presentación
+
+    - contextualización y origen del proyecto
+        * me encanta la programación
+        * considero que es un campo muy importante de 
+          la informática
+        * Quiero acercar este campo a todo el mundo 
+          para que puedan entender la tecnología mejor
+          
+    - explicación de las fases
+        * primera fase: introducción a la programación
+        * segunda fase: desarrollo de un programa simple
+        * tercera fase: tema de la presentación. Consistirá
+            en el desarrollo de un videojuego con interfaz
+            gráfica.
+
+ESQUEMA DEL JUEGO : tres componentes esenciales
+
+    - estados del programa: Game
+        * elementos: element {player, obstacle}
+        * movimiento: Move
+        * entorno: room
+    - detección de eventos
+        * teclado
+    - impresora de fotogramas
+        * recursos gráficos
+
+MECANICAS DE MOVIMIENTO : vectores e interfaz
+
+    - movimiento diagonal =/= movimiento vertical
+        * velocidad = espacio / tiempo
+    - Controlada por espacio
+        * misma cantidad de tiempo
+        * distinta cantidad de espacio
+    - Controlada por tiempo
+        * distinta cantidad de tiempo
+        * misma cantidad de espacio
+
+    - interfaz move
+        * da la capacidad de moverse a cualquier
+          elemento que la implemente
+
+CREACIÓN DEL ENTORNO : objeto room
+
+    - creación del mapa
+        * array bidimensional
+            . 0 = vacío
+            . 2 = muro
+            . 1 = obstáculo
+            . 99 = spawnzone
+    - creación del personaje
+        * posición inicial
+    - creación de obstáculos
+        * normalización en grupos de 32x32
+        * comprobación de colisiones con
+          otros elementos del mapa
+    - manipulación del personaje
+        * tryMovement()
+        * hitboxes cuadradas
+        * calculo con forma de X
+
+PROGRAMA : control de eventos
+
+    - objeto de entrada KeyEvent
+    - String input en constante cambio
+
+PROGRAMA : game
+
+    - gameInput() en clase Game
+        * comprueba la posición a la que se 
+          quiere mover el jugador
+        * llama a la función tryMovement()
+
+PROGRAMA : impresora de fotogramas
+
+    - SpriteSheets
+        * n = cantidad de sprites 
+        * array unidimensional (dimX * dimY * n)
+        * almacena colores en el array
+        * valores hexadecimales
+        * ruta de acceso al recurso gráfico
+    - Sprites
+        * array unidimensional (dimX * dimY)
+        * almacena colores en el array
+        * valores hexadecimales
+        * SpriteSheet de referencia
+
+    - FPrinter
+        * borrar pantalla tras cada impresión
+        * dibujar por capas
+            1. mapa 
+            2. obstáculos
+            3. Jugador
+
+PROGRAMA PRINCIPAL : flujo de información
+
+    - bucle principal
+    - contador de FPS
+    - contador de movimiento
+        . vertical
+        . horizontal
+    - contador de consola
+    - flujo de información con el reto de 
+      módulos
+
+ESQUEMA DEL PROGRAMA FINAL
