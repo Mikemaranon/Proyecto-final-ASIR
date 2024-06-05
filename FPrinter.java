@@ -174,7 +174,7 @@ public class FPrinter {
 public void drawPlayer(Player p, Sprite s) {
 	for(int y = 0; y < PLAYER_SPRITE_SIDE; y++) { //28 a 1
 		for(int x = 0; x < PLAYER_SPRITE_SIDE; x++) { //1 a 28
-			if(invertYaxis(p.getPosition(1))+y < height) { 
+			if(invertYaxis(p.getPosition(1))+y < height && p.getPosition(0)+x < width) { 
 				if(s.pixels[(x) + (y) * PLAYER_SPRITE_SIDE] != 0) {
 					pixels[(x+p.getPosition(0)) + (invertYaxis(p.getPosition(1))+y) * width] = 
 					s.pixels[(x & PLAYER_SPRITE_MASK) + (y & PLAYER_SPRITE_MASK) * PLAYER_SPRITE_SIDE];
